@@ -13,7 +13,7 @@ declare var $: any;
 })
 export class ManageLecturerComponent implements OnInit {
 
-    displayedColumns: string[] = ['lecID', 'name', 'school', 'dob', 'isMoE', 'action-update', 'action-delete'];
+    displayedColumns: string[] = ['lecID', 'name', 'school', 'dob', 'isMoE', 'action-update'];
     dataSource;
     spinnerLoad = false;
 
@@ -39,12 +39,13 @@ export class ManageLecturerComponent implements OnInit {
     }
 
     deleteLecturer(lecID) {
-        this.lecturerService.delete(lecID)
-            .subscribe(
-                err => {
-                    this.loadLecturers()
-                }
-            );
+        console.log(lecID);
+        // this.lecturerService.delete(lecID)
+        //     .subscribe(
+        //         err => {
+        //             this.loadLecturers()
+        //         }
+        //     );
     }
 
     createLecturer() {

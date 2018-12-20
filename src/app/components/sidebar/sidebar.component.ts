@@ -17,11 +17,11 @@ export const ROUTES: RouteInfo[] = [
     // {path: '/icons', title: 'Icons', icon: 'bubble_chart', class: ''},
     // {path: '/maps', title: 'Maps', icon: 'location_on', class: ''},
     // {path: '/notifications', title: 'Notifications', icon: 'notifications', class: ''},
-    {path: '/manage-student', title: 'Manage Student', icon: 'person', class: ''},
-    {path: '/manage-lecturer', title: 'Manage Lecturer', icon: 'person', class: ''},
-    {path: '/grading', title: 'Grading', icon: 'grade', class: ''},
-    {path: '/transcript', title: 'Transcript', icon: 'book', class: ''},
-    {path: '/manage-request', title: 'Request', icon: 'archive', class: ''},
+    {path: '/manage-student', title: 'Quản lý sinh viên', icon: 'person', class: ''},
+    {path: '/manage-lecturer', title: 'Quản lý cán bộ', icon: 'person', class: ''},
+    // {path: '/grading', title: 'Grading', icon: 'grade', class: ''},
+    // {path: '/transcript', title: 'Transcript', icon: 'book', class: ''},
+    // {path: '/manage-request', title: 'Request', icon: 'archive', class: ''},
     // {path: '/upgrade', title: 'Upgrade to PRO', icon: 'unarchive', class: 'active-pro'},
 ];
 
