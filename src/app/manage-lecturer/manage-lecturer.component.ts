@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {ManageLecturerDialogComponent} from './manage-lecturer-dialog';
+import {AccountLecturerDialogComponent} from './account-lecturer-dialog';
 import {LecturerService} from '../lecturer-services/lecturer-service.service';
 import {DatePipe} from '@angular/common';
 
@@ -13,7 +14,7 @@ declare var $: any;
 })
 export class ManageLecturerComponent implements OnInit {
 
-    displayedColumns: string[] = ['lecID', 'name', 'school', 'dob', 'isMoE', 'action-update'];
+    displayedColumns: string[] = ['lecID', 'name', 'school', 'dob', 'isMoE', 'action-account', 'action-update'];
     dataSource;
     spinnerLoad = false;
 
@@ -46,6 +47,13 @@ export class ManageLecturerComponent implements OnInit {
         //             this.loadLecturers()
         //         }
         //     );
+    }
+
+    accountLecturer(Lecturer) {
+        const newLecturerDialog = this.dialog.open(AccountLecturerDialogComponent, {
+            width: '600px',
+            data: Lecturer
+        });
     }
 
     createLecturer() {

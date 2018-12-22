@@ -1,0 +1,52 @@
+<div class="card" style="box-shadow: none">
+    <div class="card-header card-header-danger">
+        <h4 class="card-title">Tài khoản giảng viên</h4>
+    </div>
+    <div class="card-body">
+        <div *ngIf="querryMess">
+            <p>{{querryMess}}</p>
+            <button mat-button class="btn btn-success pull-right"
+                    (click)="activeForm = true; querryMess= undefined">Tạo tài khoản
+            </button>
+        </div>
+        <div class="row" *ngIf="activeForm">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form [formGroup]="createAccForm" (ngSubmit)="createLecAccount(createAccForm.value)">
+                    <input type="text" value="" class="form-control" placeholder="Tài khoản" formControlName="username">
+                    <input type="password" value="" class="form-control" placeholder="Mật khẩu" formControlName="password">
+                    <div class="clearfix"></div>
+                    <button [disabled]="createAccForm.invalid" mat-button type="submit" class="btn pull-right btn-warning">Tạo
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div *ngIf="availLec">
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="text-primary">Tài khoản</p>
+                    <p class="text-primary">Trạng thái</p>
+                </div>
+                <div class="col-md-8">
+                    <p> {{data.username}}</p>
+                    <p><span
+                            [className]="(data.disabled == true? 'bg-dark rounded p-1 text-white' : 'bg-success rounded p-1 text-white')">{{data.disabled == true ? 'Đã khóa' : 'Đang hoạt động' }}</span>
+                    </p>
+                </div>
+            </div>
+            <div *ngIf="!newPwdFill">
+                <button mat-button (click)="newPwdFill = true" class="btn btn-warning pull-right">Mật khẩu mới</button>
+                <button *ngIf="data.disabled" mat-button (click)="accStatus(false)" class="btn btn-success pull-right">Mở khóa</button>
+                <button *ngIf="!data.disabled" mat-button (click)="accStatus(true)" class="btn pull-right">Khóa</button>
+            </div>
+        </div>
+        <div *ngIf="newPwdFill">
+            <form [formGroup]="newPwdForm" (ngSubmit)="resetPwd(newPwdForm.value.password)">
+                <input type="password" value="" class="form-control" placeholder="Mật khẩu mới" formControlName="password">
+                <div class="clearfix"></div>
+                <button mat-button (click)="newPwdFill = false" class="btn pull-right">Hủy</button>
+                <button [disabled]="newPwdForm.invalid" mat-button type="submit" class="btn pull-right btn-warning">Cập nhật</button>
+            </form>
+        </div>
+    </div>
+</div>

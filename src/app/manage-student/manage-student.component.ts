@@ -14,7 +14,7 @@ declare var $: any;
 })
 export class ManageStudentComponent implements OnInit {
 
-    displayedColumns: string[] = ['stdID', 'name', 'school', 'intakeYear', 'dob', 'action-transcript', 'action-update', 'action-delete'];
+    displayedColumns: string[] = ['stdID', 'name', 'school', 'intakeYear', 'dob', 'action-update', 'action-delete'];
     dataSource;
     spinnerLoad = false;
 

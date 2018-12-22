@@ -43,6 +43,7 @@ import {
     MatAutocompleteModule
 } from '@angular/material';
 import {RequestService} from '../../request.service';
+import {AccountLecturerDialogComponent} from '../../manage-lecturer/account-lecturer-dialog';
 
 @NgModule({
     imports: [
@@ -81,13 +82,15 @@ import {RequestService} from '../../request.service';
         TranscriptComponent,
         TranscriptDialogComponent,
         ManageRequestComponent,
-        RequestDialogComponent
+        RequestDialogComponent,
+        AccountLecturerDialogComponent
     ],
     entryComponents: [
         ManageStudentDialogComponent,
         ManageLecturerDialogComponent,
         TranscriptDialogComponent,
-        RequestDialogComponent
+        RequestDialogComponent,
+        AccountLecturerDialogComponent
     ],
     providers: [
         StudentService,

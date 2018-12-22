@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-md-12">
                 <button mat-raised-button (click)="createLecturer()" type="submit"
-                        class="btn btn-success pull-right">Tạo Cán bộ</button>
+                        class="btn btn-success pull-right">Tạo Cán bộ
+                </button>
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -43,6 +44,17 @@
                                     <th mat-header-cell *matHeaderCellDef class="text-primary"> Nhân viên Bộ</th>
                                     <td mat-cell *matCellDef="let element" class="text-warning">
                                         <i *ngIf="element.isMoE" class="material-icons">star</i>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="action-account">
+                                    <th mat-header-cell *matHeaderCellDef class="text-primary"></th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <button mat-raised-button type="submit"
+                                                class="btn btn-warning btn-round btn-just-icon"
+                                                (click)="accountLecturer(element)">
+                                            <i class="material-icons">perm_identity</i>
+                                        </button>
                                     </td>
                                 </ng-container>
 
