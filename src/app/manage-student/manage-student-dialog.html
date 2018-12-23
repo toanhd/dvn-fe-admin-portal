@@ -4,13 +4,13 @@
     </div>
     <div class="card-body">
         <div mat-dialog-content>
-            <mat-form-field><input matInput type="number" placeholder="Student ID"
+            <mat-form-field><input matInput type="number" placeholder="Mã số sinh viên"
                                    [disabled]="data.isStdID" [(ngModel)]="data.stdID"></mat-form-field>
-            <mat-form-field><input matInput placeholder="Name" [(ngModel)]="data.name"></mat-form-field>
-            <mat-form-field><input matInput placeholder="School" [(ngModel)]="data.school"></mat-form-field>
-            <mat-form-field><input matInput type="number" placeholder="Intake Year" [(ngModel)]="data.intakeYear"></mat-form-field>
+            <mat-form-field><input matInput placeholder="Tên" [(ngModel)]="data.name"></mat-form-field>
+            <mat-form-field><input matInput placeholder="Khoa/Viện" [(ngModel)]="data.school"></mat-form-field>
+            <mat-form-field><input matInput type="number" placeholder="Khóa" [(ngModel)]="data.intakeYear"></mat-form-field>
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Date of Birth" [(ngModel)]=" data.dob">
+                <input matInput [matDatepicker]="picker" placeholder="Ngày sinh" [(ngModel)]=" data.dob">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
