@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
                 err => {
                     if (err.message === 'Unauthorized') {
                         this.loginMess = 'Tài khoản không có quyền truy cập!'
+                    } else if (err.message === 'Locked') {
+                        this.loginMess = 'Tài khoản đã bị khóa'
                     } else {
                         this.loginMess = 'Sai thông tin đăng nhập!'
                     }
