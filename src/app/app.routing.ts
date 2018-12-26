@@ -6,12 +6,11 @@ import {Routes, RouterModule} from '@angular/router';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuardService as AuthGuard} from './auth-guard.service';
-import {AuthNavigatorService as AuthNav} from './auth-navigator.service'
 
 const routes: Routes = [
         {
             path: '',
-            redirectTo: 'login',
+            redirectTo: 'manage-student',
             pathMatch: 'full',
         }, {
             path: '',
@@ -25,7 +24,6 @@ const routes: Routes = [
         },
         {
             path: 'login',
-            canActivate: [AuthNav],
             component: LoginComponent
         },
     ]

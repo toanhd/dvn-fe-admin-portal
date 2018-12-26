@@ -109,8 +109,6 @@ export class AppService {
     public isAuthenticated(): boolean {
         const jwtHelper: JwtHelperService = new JwtHelperService();
         const token = localStorage.getItem('token');
-        // Check whether the token is expired and return
-        // true or false
         return !jwtHelper.isTokenExpired(token);
     }
 
