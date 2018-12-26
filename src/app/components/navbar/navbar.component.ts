@@ -124,4 +124,9 @@ export class NavbarComponent implements OnInit {
         }
         return 'Dashboard';
     }
+
+    logOut() {
+        localStorage.clear();
+        this.router.navigateByUrl('');
+    }
 }

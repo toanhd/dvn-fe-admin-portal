@@ -4,6 +4,7 @@ import {ManageLecturerDialogComponent} from './manage-lecturer-dialog';
 import {AccountLecturerDialogComponent} from './account-lecturer-dialog';
 import {LecturerService} from '../lecturer-services/lecturer-service.service';
 import {DatePipe} from '@angular/common';
+import {AppService} from '../app-services.service';
 
 declare var $: any;
 
@@ -20,7 +21,8 @@ export class ManageLecturerComponent implements OnInit {
 
     constructor(public dialog: MatDialog,
                 private lecturerService: LecturerService,
-                private datePipe: DatePipe) {
+                private datePipe: DatePipe,
+                private appService: AppService) {
     }
 
     ngOnInit() {
@@ -110,6 +112,16 @@ export class ManageLecturerComponent implements OnInit {
     }
 
     updateLecturer(lecturerInfo) {
+        let lecAccAvail: boolean;
+        this.appService.checkAccountAvail(lecturerInfo.lecID).subscribe(
+            lec => {
+                lecAccAvail = true;
+            },
+            errrrrr => {
+                lecAccAvail = false;
+            }
+        );
+
         const lecturer = {
             $class: 'org.dvn.com.Lecturer',
             lecID: '',
@@ -145,14 +157,36 @@ export class ManageLecturerComponent implements OnInit {
                 lecturer.info.school = result.school;
                 lecturer.info.dob = result.dob;
                 lecturer.isMoE = result.isMoE;
-                this.lecturerService.update(lecturer).subscribe(
-                    data => {
-                        this.loadLecturers();
-                    },
-                    err => {
-                        this.loadLecturers();
-                    }
-                )
+
+                if (lecAccAvail) {
+                    const roleInfo = {
+                        lecID: result.lecID,
+                        isMoE: result.isMoE
+                    };
+                    this.appService.role(roleInfo).subscribe(
+                        data => {
+                            this.lecturerService.update(lecturer).subscribe(
+                                res => {
+                                    this.loadLecturers();
+                                },
+                                errrr => {
+                                    this.loadLecturers();
+                                }
+                            )
+                        },
+                        err => {
+                        }
+                    );
+                } else {
+                    this.lecturerService.update(lecturer).subscribe(
+                        res => {
+                            this.loadLecturers();
+                        },
+                        errrr => {
+                            this.loadLecturers();
+                        }
+                    )
+                }
             }
         });
     }
