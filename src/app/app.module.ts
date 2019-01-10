@@ -16,7 +16,8 @@ import {
     MatFormFieldModule,
     MatTooltipModule,
     MatSelectModule,
-    MatAutocompleteModule, MatProgressSpinnerModule
+    MatAutocompleteModule,
+    MatProgressSpinnerModule
 } from '@angular/material';
 import {AppService} from './app-services.service';
 

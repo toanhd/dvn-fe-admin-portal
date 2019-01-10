@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {AppService} from '../app-services.service';
 import {Router} from '@angular/router';
 
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -19,11 +20,17 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private authenService: AppService,
-        private router: Router
+        private router: Router,
     ) {
     }
 
     ngOnInit() {
+        if (this.authenService.isAuthenticated()) {
+            this.router.navigateByUrl('/');
+            return true;
+        } else {
+            return false;
+        }
     }
 
     onLogin() {
